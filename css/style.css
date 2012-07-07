@@ -1,0 +1,36 @@
+div.span4{
+	background-color: #DDDDDD;
+}
+
+div.span7{
+	
+}
+
+.appear [class*="span"] {
+    margin-bottom: 40px;
+  }
+
+canvas{
+	margin-bottom: 5px;
+}
+
+
+div.canvasBt{
+	float: right;
+}
+
+div.thumbnail:hover {
+  border-color: #0088cc;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+footer{
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+footer p{
+	text-align:right;
+}
