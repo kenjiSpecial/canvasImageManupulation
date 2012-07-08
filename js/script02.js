@@ -18,6 +18,7 @@ window.onload = function() {
 	var canvas2 = document.getElementById("IMGManipulate2");
 	var context2 = canvas2.getContext("2d");
 	img2 = new Image();
+	
 
 }
 grayscale = function() {
