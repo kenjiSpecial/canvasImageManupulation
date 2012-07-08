@@ -17,7 +17,7 @@
 		</style>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
 		<!-- 		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
-		<script src="js/script01.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/script02.js" type="text/javascript" charset="utf-8"></script>
 		<!-- 		<script src="js/script02.js" type="text/javascript" charset="utf-8"></script> -->
 
 		<script type="text/javascript">
@@ -55,7 +55,7 @@
 			<div class="row appear">
 
 				<div class="span7 thumbnail">
-					<canvas id="IMGManipulate" width="540" height="406" style="display: block;"></canvas>
+					<canvas id="IMGManipulate1" width="540" height="406" style="display: block;"></canvas>
 					<div class="btn-toolbar">
 						<div class="btn-group">
 							<button class="btn" onclick="grayscale()">
@@ -64,13 +64,16 @@
 							<button class="btn" onclick="bright()">
 								Bright
 							</button>
+							<button class="btn" onclick="dark()">
+								Dark
+							</button>
 							<button class="btn" onclick="threshold()">
 								Threshold
 							</button>
 						</div>
 
 						<div class="btn-group canvasBt">
-							<button class="btn btn-primary" onclick="original()">
+							<button class="btn btn-primary" onclick="original1()">
 								original
 							</button>
 						</div>
@@ -78,7 +81,7 @@
 				</div>
 				<div class="span5 thumbnail">
 
-					<canvas id="IMGManipulate1" width="380" height="570" style="display: block;"></canvas>
+					<canvas id="IMGManipulate2" width="380" height="570" style="display: block;"></canvas>
 					<!--Body content-->
 					<div class="btn-toolbar">
 						<div class="btn-group">
