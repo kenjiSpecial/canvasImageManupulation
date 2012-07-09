@@ -80,7 +80,7 @@ blurImage = function(){
 	var a = 16;
 	var array = new Array();
 	
-	for(var i = 0; i < array.length; i++){
+	for(var i = 0; i < a; i++){
 		array[i] = 1/a;
 	}
 	
