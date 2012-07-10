@@ -73,24 +73,37 @@ original1 = function() {
 
 sharpenImage = function() {
 	// runFilter('IMGManipulate2', Filters.convolute, img2, [0, -1, 0, -1, 5, -1, 0, -1, 0]);
-		runFilter('IMGManipulate2', Filters.convolute, img2, [0, 0, -1, 0, 0, 0, 0, -1, 0, 0, -1, -1, 9, -1, -1, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0]);
+	runFilter('IMGManipulate2', Filters.convolute, img2, [0, 0, -1, 0, 0, 0, 0, -1, 0, 0, -1, -1, 9, -1, -1, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0]);
 }
-
-blurImage = function(){
+blurImage = function() {
 	var a = 16;
 	var array = new Array();
-	
-	for(var i = 0; i < a; i++){
-		array[i] = 1/a;
+
+	for(var i = 0; i < a; i++) {
+		array[i] = 1 / a;
 	}
-	
+
 	runFilter('IMGManipulate2', Filters.convolute, img2, array);
 }
-
 original2 = function() {
 	runFilter('IMGManipulate2', Filters.original, img2);
 }
+// ==========================
+// id isIMGManipulate3
+// ==========================
 
+vericalImage = function() {
+	var vertialWeight = [-1, 0, 1, -2, 0, 2, -1, 0, 1];
+	var horizonalWeight = [-1, -2, -1, 0, 0, 0, 1, 2, 1];
+	// var vertialWeight = [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9];
+	runFilter('IMGManipulate3', Filters.convolute, img3, horizonalWeight);
+}
+
+
+
+original3 = function() {
+	runFilter('IMGManipulate3', Filters.original, img3);
+}
 // ==========================
 // -------------------------------
 // ==========================
@@ -99,7 +112,7 @@ function runFilter(id, filter, image, arg1, arg2, arg3) {
 	var c = document.getElementById(id);
 
 	var idata = Filters.filterImage(filter, image, arg1, arg2, arg3);
-	console.log(idata.data);
+	// console.log(idata.data);
 	c.width = idata.width;
 	c.height = idata.height;
 	var ctx = c.getContext('2d');
@@ -193,50 +206,52 @@ Filters.original = function(pixels, args) {
 Filters.tmpCanvas = document.createElement('canvas');
 Filters.tmpCtx = Filters.tmpCanvas.getContext('2d');
 
-Filters.createImageData = function(w,h) {
-  return this.tmpCtx.createImageData(w,h);
+Filters.createImageData = function(w, h) {
+	return this.tmpCtx.createImageData(w, h);
 };
 
 Filters.convolute = function(pixels, weights, opaque) {
-  var side = Math.round(Math.sqrt(weights.length));
-  var halfSide = Math.floor(side/2);
-  var src = pixels.data;
-  var sw = pixels.width;
-  var sh = pixels.height;
-  // pad output by the convolution matrix
-  var w = sw;
-  var h = sh;
-  var output = Filters.createImageData(w, h);
-  var dst = output.data;
-  // go through the destination image pixels
-  var alphaFac = opaque ? 1 : 0;
-  for (var y=0; y<h; y++) {
-    for (var x=0; x<w; x++) {
-      var sy = y;
-      var sx = x;
-      var dstOff = (y*w+x)*4;
-      // calculate the weighed sum of the source image pixels that
-      // fall under the convolution matrix
-      var r=0, g=0, b=0, a=0;
-      for (var cy=0; cy<side; cy++) {
-        for (var cx=0; cx<side; cx++) {
-          var scy = sy + cy - halfSide;
-          var scx = sx + cx - halfSide;
-          if (scy >= 0 && scy < sh && scx >= 0 && scx < sw) {
-            var srcOff = (scy*sw+scx)*4;
-            var wt = weights[cy*side+cx];
-            r += src[srcOff] * wt;
-            g += src[srcOff+1] * wt;
-            b += src[srcOff+2] * wt;
-            a += src[srcOff+3] * wt;
-          }
-        }
-      }
-      dst[dstOff] = r;
-      dst[dstOff+1] = g;
-      dst[dstOff+2] = b;
-      dst[dstOff+3] = a + alphaFac*(255-a);
-    }
-  }
-  return output;
+	var side = Math.round(Math.sqrt(weights.length));
+	var halfSide = Math.floor(side / 2);
+	var src = pixels.data;
+	var sw = pixels.width;
+	var sh = pixels.height;
+	// pad output by the convolution matrix
+	var w = sw;
+	var h = sh;
+	var output = Filters.createImageData(w, h);
+	var dst = output.data;
+	// go through the destination image pixels
+	var alphaFac = opaque ? 1 : 0;
+	for(var y = 0; y < h; y++) {
+		for(var x = 0; x < w; x++) {
+			var sy = y;
+			var sx = x;
+			var dstOff = (y * w + x) * 4;
+			// calculate the weighed sum of the source image pixels that
+			// fall under the convolution matrix
+			var r = 0, g = 0, b = 0, a = 0;
+			for(var cy = 0; cy < side; cy++) {
+				for(var cx = 0; cx < side; cx++) {
+					var scy = sy + cy - halfSide;
+					var scx = sx + cx - halfSide;
+					if(scy >= 0 && scy < sh && scx >= 0 && scx < sw) {
+						var srcOff = (scy * sw + scx) * 4;
+						var wt = weights[cy * side + cx];
+						r += src[srcOff] * wt;
+						g += src[srcOff + 1] * wt;
+						b += src[srcOff + 2] * wt;
+						a += src[srcOff + 3] * wt;
+					}
+				}
+				
+			}
+			dst[dstOff] = Math.abs(r);
+			dst[dstOff + 1] = Math.abs(g);
+			dst[dstOff + 2] = Math.abs(b);
+			
+			// console.log(dst[dstOff] + ", " +dst[dstOff + 1]+", "+dst[dstOff + 2]);
+		}
+	}
+	return output;
 };

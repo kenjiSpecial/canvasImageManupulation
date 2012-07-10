@@ -7,7 +7,6 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<meta property="og:image" content="CIM.jpg"/>
-
 		<!-- Le styles -->
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<style>
@@ -17,152 +16,130 @@
 		</style>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
 		<!-- 		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
-		<script src="js/script02.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/script.js" type="text/javascript" charset="utf-8"></script>
 		<!-- 		<script src="js/script02.js" type="text/javascript" charset="utf-8"></script> -->
-
-
 	</head>
-
 	<body>
-
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<!-- 					<a class="brand" href="#">Project name</a> -->
-					<div class="brand">
-						Canvas Image Manupulation Gallery
+		<div class="container">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<!-- 					<a class="brand" href="#">Project name</a> -->
+						<div class="brand">
+							Canvas Image Manupulation Gallery
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="container-fluid">
-			<div class="row appear">
-
-				<div class="span7 thumbnail">
-					<canvas id="IMGManipulate1" width="540" height="406" style="display: block;"></canvas>
-					<div class="btn-toolbar">
-						<div class="btn-group">
-							<button class="btn" onclick="grayscale()">
-								Grey
-							</button>
-							<button class="btn" onclick="bright()">
-								Bright
-							</button>
-							<button class="btn" onclick="dark()">
-								Dark
-							</button>
-							<button class="btn" onclick="threshold()">
-								Threshold
-							</button>
-						</div>
-
-						<div class="btn-group canvasBt">
-							<button class="btn btn-primary" onclick="original1()">
-								original
-							</button>
+			<div class="container-fluid">
+				<div class="row appear">
+					<div class="span7 thumbnail">
+						<canvas id="IMGManipulate1" width="540" height="406" style="display: block;"></canvas>
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<button class="btn" onclick="grayscale()">
+									Grey
+								</button>
+								<button class="btn" onclick="bright()">
+									Bright
+								</button>
+								<button class="btn" onclick="dark()">
+									Dark
+								</button>
+								<button class="btn" onclick="threshold()">
+									Threshold
+								</button>
+							</div>
+							<div class="btn-group canvasBt">
+								<button class="btn btn-primary" onclick="original1()">
+									original
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="span5 thumbnail">
-
-					<canvas id="IMGManipulate2" width="380" height="570" style="display: block;"></canvas>
-					<!--Body content-->
-					<div class="btn-toolbar">
-						<div class="btn-group">
-							<button class="btn" onclick="sharpenImage()">
-								Sharp
-							</button>
-							<button class="btn" onclick="blurImage()">
-								Blur
-							</button>
-						</div>
-
-						<div class="btn-group canvasBt">
-							<button class="btn btn-primary" onclick="original2()">
-								original
-							</button>
+					<div class="span5 thumbnail">
+						<canvas id="IMGManipulate2" width="380" height="570" style="display: block;"></canvas>
+						<!--Body content-->
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<button class="btn" onclick="sharpenImage()">
+									Sharp
+								</button>
+								<button class="btn" onclick="blurImage()">
+									Blur
+								</button>
+							</div>
+							<div class="btn-group canvasBt">
+								<button class="btn btn-primary" onclick="original2()">
+									original
+								</button>
+							</div>
 						</div>
 					</div>
-
-				</div>
-
-				<div class="span6 thumbnail">
-
-					<canvas id="IMGManipulate3" width="466" height="330" style="display: block;"></canvas>
-					<!--Body content-->
-					<div class="btn-toolbar">
-						<div class="btn-group">
-							<button class="btn" onclick="vericalImage()">
-								Vertice
-							</button>
-							<button class="btn" onclick="horizonalImage()">
-								Horizon
-							</button>
-							<button class="btn" onclick="sobelImage()">
-								Sobel
-							</button>
-						</div>
-
-						<div class="btn-group canvasBt">
-							<button class="btn btn-primary" onclick="original3()">
-								original
-							</button>
+					<div class="span6 thumbnail">
+						<canvas id="IMGManipulate3" width="466" height="330" style="display: block;"></canvas>
+						<!--Body content-->
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<button class="btn" onclick="vericalImage()">
+									Vertice
+								</button>
+								<button class="btn" onclick="horizonalImage()">
+									Horizon
+								</button>
+								<button class="btn" onclick="sobelImage()">
+									Sobel
+								</button>
+							</div>
+							<div class="btn-group canvasBt">
+								<button class="btn btn-primary" onclick="original3()">
+									original
+								</button>
+							</div>
 						</div>
 					</div>
-
-				</div>
-
-				<div class="span6 thumbnail">
-
-					<canvas id="IMGManipulate4" width="466" height="330" style="display: block;"></canvas>
-					<!--Body content-->
-					<div class="btn-toolbar">
-						<div class="btn-group">
-							<button class="btn" onclick="crazy1()">
-								Crazy1
-							</button>
-							<button class="btn" onclick="crazy2()">
-								Crazy2
-							</button>
-						</div>
-
-						<div class="btn-group canvasBt">
-							<button class="btn btn-primary" onclick="original4()">
-								original
-							</button>
+					<div class="span6 thumbnail">
+						<canvas id="IMGManipulate4" width="466" height="330" style="display: block;"></canvas>
+						<!--Body content-->
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<button class="btn" onclick="crazy1()">
+									Crazy1
+								</button>
+								<button class="btn" onclick="crazy2()">
+									Crazy2
+								</button>
+							</div>
+							<div class="btn-group canvasBt">
+								<button class="btn btn-primary" onclick="original4()">
+									original
+								</button>
+							</div>
 						</div>
 					</div>
-
+					<div class="span3 thumbnail">
+						<dl>
+							<dt>
+								Reference Sites
+							</dt>
+							<dd>
+								<a href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters/#toc-simplefilters">html5rocks</a>
+							</dd>
+							<dd>
+								<a href="http://twitter.github.com/bootstrap/index.html">Bootstrap, from Twitter</a>
+							</dd>
+						</dl>
+						<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fkenji-special.com%2FCanvas%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21&amp;appId=426788960677447" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
+					</div>
 				</div>
-
-				<div class="span3 thumbnail">
-					<dl>
-						<dt>
-							Reference Sites
-						</dt>
-						<dd>
-							<a href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters/#toc-simplefilters">html5rocks</a>
-						</dd>
-						<dd>
-							<a href="http://twitter.github.com/bootstrap/index.html">Bootstrap, from Twitter</a>
-						</dd>
-					</dl>
-					<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fkenji-special.com%2FCanvas%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21&amp;appId=426788960677447" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
-				</div>
-
+				<footer>
+					<p>
+						Developed by <a href="http://kenji-special.com/">Kenji Saito</a>
+					</p>
+				</footer>
 			</div>
-			<footer>
-				<p>
-					Developed by <a href="http://kenji-special.com/">Kenji Saito</a>
-				</p>
-				
-			</footer>
-
 		</div>
-
 		<!-- /container -->
-
 		<!-- Le javascript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
@@ -179,6 +156,5 @@
 		<script src="assets/js/bootstrap-collapse.js"></script>
 		<script src="assets/js/bootstrap-carousel.js"></script>
 		<script src="assets/js/bootstrap-typeahead.js"></script> -->
-
 	</body>
 </html>
