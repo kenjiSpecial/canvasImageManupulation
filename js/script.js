@@ -119,7 +119,10 @@ original3 = function() {
 // ==========================
 
 scaleUp = function(){
-	// runFilter("IMGManipulate5", Filters)
+	alert("scaleup")
+	runFilter("IMGManipulate5", Filters.scaleUp, img5);
+	// Filters.scaleUp 
+
 }
 
 
@@ -213,17 +216,33 @@ Filters.threshold = function(pixels, args) {
 
 		d[i] = d[i + 1] = d[i + 2] = v;
 	}
-
 	return pixels;
 }
 
 Filters.scaleUp = function(pixels, args){
 	var d = pixels.data;
+	var w = pixels.width;
+	var h = pixels.height;
+	var newData = new Array();
 	
 	
-	for (var i=0; i < d.length; i++) {
-	  d[i]
+	for (var i=0; i < d.length/2; i+= 4) {
+	  // newData[i] = d[i*2];
+	  // newData[i + 1] = d[i*2 +1];
+	  // newData[i + 2] = d[i*2 +2];
+	  // newData[i + 3] = d[i*2 +3];
+// 	  
+	  // newData[i + 4] = 0;
+	  // newData[i + 5] = 0;
+	  // newData[i + 6] = 0;
+	  // newData[i + 7] = 0;
+	  d[i] = 0;
+	  d[i + 1] = 0;
+	  d[i + 2] = 0;
 	}
+	
+	pixels.data = newData;
+	return pixels;
 }
 
 Filters.original = function(pixels, args) {
