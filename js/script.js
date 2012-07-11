@@ -4,6 +4,8 @@ var hg;
 var img1;
 var img2;
 var img3;
+var img4;
+var img5;
 Filters = {};
 
 window.onload = function() {
@@ -45,6 +47,16 @@ window.onload = function() {
 
 	function eventImageLoaded4() {
 		context4.drawImage(img4, 0, 0);
+	}
+
+	var canvas5 = document.getElementById("IMGManipulate5");
+	var context5 = canvas5.getContext("2d");
+	img5 = new Image();
+	img5.src = "img/test05.jpg";
+	img5.addEventListener('load', eventImageLoaded5, false);
+
+	function eventImageLoaded5() {
+		context5.drawImage(img5, 0, 0);
 	}
 
 }
@@ -98,12 +110,19 @@ vericalImage = function() {
 	// var vertialWeight = [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9];
 	runFilter('IMGManipulate3', Filters.convolute, img3, horizonalWeight);
 }
-
-
-
 original3 = function() {
 	runFilter('IMGManipulate3', Filters.original, img3);
 }
+
+// ==========================
+// id isIMGManipulate4
+// ==========================
+
+scaleUp = function(){
+	// runFilter("IMGManipulate5", Filters)
+}
+
+
 // ==========================
 // -------------------------------
 // ==========================
@@ -119,7 +138,6 @@ function runFilter(id, filter, image, arg1, arg2, arg3) {
 	ctx.putImageData(idata, 0, 0);
 
 }
-
 
 // the below is filters
 
@@ -199,6 +217,15 @@ Filters.threshold = function(pixels, args) {
 	return pixels;
 }
 
+Filters.scaleUp = function(pixels, args){
+	var d = pixels.data;
+	
+	
+	for (var i=0; i < d.length; i++) {
+	  d[i]
+	}
+}
+
 Filters.original = function(pixels, args) {
 	return pixels;
 }
@@ -244,12 +271,12 @@ Filters.convolute = function(pixels, weights, opaque) {
 						a += src[srcOff + 3] * wt;
 					}
 				}
-				
+
 			}
 			dst[dstOff] = Math.abs(r);
 			dst[dstOff + 1] = Math.abs(g);
 			dst[dstOff + 2] = Math.abs(b);
-			
+
 			// console.log(dst[dstOff] + ", " +dst[dstOff + 1]+", "+dst[dstOff + 2]);
 		}
 	}
